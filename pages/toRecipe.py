@@ -1,11 +1,9 @@
-import openai
 from langchain.prompts import PromptTemplate
 from flask import Flask, request, render_template
 from dotenv import load_dotenv
-import os
 
 def provide_recipes():
-    ingredients = []
+    ingredients = [egg, flour]
     # User input
     
     prompt_template = PromptTemplate.from_template(
@@ -16,19 +14,11 @@ def provide_recipes():
     prompt_template.format(ingredients=ingredients)
 
 def main():
-    api_key = os.getenv("OPENAI_API_KEY")
-    # api_key = user_api
-    # user_api is the user's api key that they enter. 
-    
-    openai_llm = ChatOpenAI(
-        openai_api_key=api_key,
-        model_name=gpt-3.5-turbo,
-        temperature=0
-    )
+    # Make user's api key work instead of our personal key
     
     if load_dotenv():
         print("Successful login")
-        provide_recipes()
+        print(provide_recipes)
         # Display on screen? 
         # Successful login and able to use the program/website
         
