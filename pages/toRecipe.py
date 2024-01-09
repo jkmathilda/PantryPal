@@ -1,8 +1,16 @@
-from langchain.prompts import PromptTemplate
 from flask import Flask, request, render_template
 from dotenv import load_dotenv
+import os
+import dotenv
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
+from langchain_openai import OpenAI
+
 
 def provide_recipes():
+    api_key = os.getenv("OPENAI_API_KEY")
+    llm = OpenAI(openai_api_key=api_key)
+    
     ingredients = ["egg", "flour", "sugar", "olive oil", "carrots", "onions", "salt", "pepper"]
     # User input
     
@@ -11,8 +19,9 @@ def provide_recipes():
         ingredients other than: {ingredients} However, you are allowed to provide a recipe that doesn't use all ingredients. '''
         # Might need to add basic ingredients manually: ex. water
     )
-    recipes = prompt_template.format(ingredients=ingredients)
     
+    llm_chain = LLMChain(prompt=prompt_template.format(ingredients=ingredients), llm=llm)
+    recipes = llm_chain.run()
     return recipes
 
 def main():
@@ -20,7 +29,7 @@ def main():
     
     if load_dotenv():
         print("Successful login")
-        print(provide_recipes)
+        print(provide_recipes())
         # Display on screen? 
         # Successful login and able to use the program/website
         
