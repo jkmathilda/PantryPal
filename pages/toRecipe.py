@@ -1,2 +1,2 @@
 import openai
-from langchain.schema import SystemMessage, HumanMessage
+from langchain.schema import SystemMessage
