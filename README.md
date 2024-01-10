@@ -1,8 +1,8 @@
-## PantryPal
+# PantryPal
 
 ### Table of Contents
 * [Introduction](#Introduction)
-* [Installation](#Installation)
+* [Getting Started](#Getting_Started)
 * [Use](#Use) 
 
 ### Introduction
