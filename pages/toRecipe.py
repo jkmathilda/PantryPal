@@ -17,7 +17,7 @@ def provide_recipes():
     prompt_template = PromptTemplate.from_template(
         '''Provide a list of recipes you can cook with the provided ingredients. Do not provide any dishes that require
         ingredients other than: {ingredients} However, you are allowed to provide a recipe that doesn't use all ingredients. '''
-        # Might need to add basic ingredients manually: ex. water
+        # Might need to add basic ingredients manually: ex. water, oil
     )
     
     recipes = llm(prompt_template.format(ingredients=ingredients))
