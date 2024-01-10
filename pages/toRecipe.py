@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+# from flask import Flask, request, render_template
 from dotenv import load_dotenv
 import os
 import dotenv
@@ -20,13 +20,11 @@ def provide_recipes():
         # Might need to add basic ingredients manually: ex. water
     )
     
-    llm_chain = LLMChain(prompt=prompt_template.format(ingredients=ingredients), llm=llm)
-    recipes = llm_chain.run()
+    recipes = llm(prompt_template.format(ingredients=ingredients))
     return recipes
 
 def main():
     # Make user's api key work instead of our personal key
-    
     if load_dotenv():
         print("Successful login")
         print(provide_recipes())
