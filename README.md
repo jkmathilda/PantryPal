@@ -5,7 +5,7 @@
 * [Getting Started](#Getting-Started)
 * [Use](#Use) 
 
-### Introduction
+# Introduction
 PantryPal is a project to suggest various recipies  
 
 # Getting Started
