@@ -2,7 +2,7 @@
 
 ### Table of Contents
 * [Introduction](#Introduction)
-* [Getting Started](#Getting_Started)
+* [Getting Started](#Getting-Started)
 * [Use](#Use) 
 
 ### Introduction
