@@ -59,5 +59,5 @@ or select 'Your key' and enter your API key.
 
     deactivate
 
-### Use
+# Use
 
