@@ -1,4 +1,2 @@
 flask
 openai
-langchain 
-langchain_openai
