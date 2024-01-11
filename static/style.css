@@ -19,53 +19,30 @@ body {
   margin-left: 15px;
 }
 
-.search_container {
-  display:flex;
+.search-container {
+  display: flex;
   justify-content: center;
 }
 
-.search_bar {
+.search-bar {
   border-radius: 4px;
-  padding: 10px 15px;
+  padding-top: 12px;
+  padding-bottom: 8px;
+  padding-left: 15px;
   border-width: 1.5px;
-  height: 28px;
-  width: 320px;
-  font-size: 16px;
-  font-family: 'Poppins'
+  font-size: 15px;
+  font-family: 'Poppins';
+  max-height: 50.5px;
+  width: 370px;
+  box-sizing: border-box;
 }
 
-.search_bar:focus {
+.search-bar:focus {
   outline: none;
 }
 
-.filterbtn {
-  background-color: black;
-  color: white;
-  width: 73px;
-  padding: 16px;
-  padding-left: 18px;
-  font-size: 16px;
-  text-align: center;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.filterbtn:hover, .filterbtn:focus {
+.staples-btn:hover, .staples-btn:focus, .search-btn:hover, .search-btn:focus {
   background-color: rgb(107, 154, 255);
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgb(223, 223, 223);
-  min-width: 230px;
-  border: 1px solid #ddd;
-  z-index: 1;
 }
 
 label {
@@ -73,6 +50,51 @@ label {
   font-size: 15px;
 }
 
-input {
-  cursor: pointer;
+.dropdown-content {
+  display: none;
+  background-color: black;
+  color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding-left: 4px;  
+  padding-right: 4px; 
 }
+
+input[type=checkbox] {
+  accent-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.search-btn {
+  background-color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  height: 50.5px;
+  background-image: url("search-icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  margin-left: 2px;
+}
+
+ .staples-btn {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  font-family: 'Poppins';
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 13px 20px;
+  box-sizing: border-box;
+  margin-left: 2px;
+  height: 50.5px;
+ }

@@ -3,7 +3,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PantryPal</title>
   <link rel = "stylesheet" href="/static/style.css">
-  <script src="scripts.js"> </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
@@ -15,27 +14,28 @@
       <h class="logo-name">PantryPal</h> 
       <!-- we'll replace the logo with an actual image later-->
       <p class ="logo-img"> 🍲</p> 
-
     </div>
 
-    <div class="search_container">
-      <input type = "type_name" class="search_bar" placeholder = "Search for an ingredient ">
-      
+    <div class="search-container">
+      <textarea class="search-bar" placeholder="Enter ingredients, separated by commas" rows=1> </textarea>
       <div class="dropdown">
-        <button class="filterbtn">Filter</button>
-        <div id="dropdown-content">
-
-          <input type="checkbox" id="option1">
-            <label for="option1"> Vegan </label><br>
-          <input type="checkbox" id="option2">
-            <label for="option1"> GF </label><br>
-          <input type="checkbox" id="option3" >
-            <label for="option2" > DF </label><br>
-          <input type="checkbox" id="option4">
-            <label for="option3"> Keto </label><br>
-
+        <button class="staples-btn">Staples</button>
+        <div class="dropdown-content">
+          <input type="checkbox" id="option1" checked>
+            <label for="option1"> Butter </label><br>
+          <input type="checkbox" id="option2" checked>
+            <label for="option1" > Oil </label><br>
+          <input type="checkbox" id="option3" checked>
+            <label for="option2" > Water </label><br>
+          <input type="checkbox" id="option4" checked>
+            <label for="option3"> Salt </label><br>
+          <input type="checkbox" id="option4" checked>
+            <label for="option3"> Pepper </label><br>
         </div>
+      </div>
+      <button class="search-btn"></button>
     </div>
-  </div>
 
 </body>
+
+
