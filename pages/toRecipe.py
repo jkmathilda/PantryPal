@@ -1,4 +1,4 @@
-# from flask import Flask, request, render_template
+from flask import Flask, request, render_template
 from dotenv import load_dotenv
 import os
 import dotenv
@@ -11,16 +11,17 @@ def provide_recipes():
     api_key = os.getenv("OPENAI_API_KEY")
     llm = OpenAI(openai_api_key=api_key)
     
-    ingredients = ["egg", "flour", "sugar", "olive oil", "carrots", "onions", "salt", "pepper"]
     # User input
+    ingredients = "egg, flour, olive oil, water, garlic, onion, salt, pepper"
+    # Checkbox
+    staples = "oil, butter, salt"
     
     prompt_template = PromptTemplate.from_template(
-        '''Provide a list of recipes you can cook with the provided ingredients. Do not provide any dishes that require
-        ingredients other than: {ingredients} However, you are allowed to provide a recipe that doesn't use all ingredients. '''
-        # Might need to add basic ingredients manually: ex. water, oil
+        '''Provide recipes you can cook with the provided ingredients. Do not provide any dishes that require
+        ingredients other than: {ingredients}, {staples} However, you are allowed to provide a recipe that doesn't use all ingredients. '''
     )
     
-    recipes = llm(prompt_template.format(ingredients=ingredients))
+    recipes = llm(prompt_template.format(ingredients=ingredients, staples=staples))
     return recipes
 
 def main():
