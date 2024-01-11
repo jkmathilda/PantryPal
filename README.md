@@ -8,7 +8,7 @@
 # Introduction
 PantryPal is a project to suggest various recipies  
 
-git clone https://github.com/jkmathilda/PantryPal.git
+    git clone https://github.com/jkmathilda/PantryPal.git
 
 # Getting Started
 
