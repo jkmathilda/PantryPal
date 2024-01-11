@@ -20,7 +20,7 @@ To
 
 ### Setting up a Virtual Environment
 
-    cd ./gpt-PantryPal
+    cd ./PantryPal
 
     pyenv versions
 
