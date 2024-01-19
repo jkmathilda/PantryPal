@@ -12,7 +12,7 @@ PantryPal is a project to suggest various recipies
 To get started with this project, you'll need to clone the repository and set up a virtual environment. This will allow you to install the required dependencies without affecting your system-wide Python installation.
 
 # Use 
-To 
+To use do this
 
 ### Cloning the Repository
 
