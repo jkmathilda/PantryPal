@@ -1,9 +1,7 @@
 from flask import Flask, request, render_template
 from dotenv import load_dotenv
 import os
-import dotenv
 from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
 from langchain_openai import OpenAI
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
