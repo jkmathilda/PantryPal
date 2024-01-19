@@ -50,8 +50,32 @@ def provide_recipes(ingredients, staples):
     #staples = "oil, butter, salt"
     
     prompt_template = PromptTemplate.from_template(
-        '''Provide recipes you can cook with the provided ingredients. Do not provide any dishes that require
-        ingredients other than: {ingredients}, {staples} However, you are allowed to provide a recipe that doesn't use all ingredients. '''
+        '''Provide recipes (max 21 recipes) for 2 servings you can cook with the provided ingredients. Do not provide any dishes that require
+        ingredients other than: {ingredients}, {staples} However, you are allowed to provide a recipe that doesn't use all ingredients. 
+        
+        Return in the form:
+        RECIPE NAME: 
+        INGREDIENTS:
+        RECIPE: 
+        1.
+        2. 
+        3. 
+        4. 
+        ...
+        
+        
+        <Example>
+        RECIPE NAME: Egg Salad
+        INGREDIENTS: 8 eggs, 0.5 cup mayonnaise, 0.25 cup chopped green onion, 1 teaspoon prepared yellow mustard
+        0.25 teaspoon paprika, salt and pepper to taste
+        RECIPE: 
+        1. Place eggs in a saucepan and cover with cold water. Bring water to a boil and immediately remove from heat. 
+        Cover and let eggs stand in hot water for 10 to 12 minutes. Remove from hot water, cool, peel, and chop.
+        2. Place chopped eggs in a bowl; stir in mayonnaise, green onion, and mustard. Season with paprika, salt, and pepper. 
+        3. Stir and serve on your favorite bread or crackers.
+        
+        
+        '''
     )
     
     recipes = llm(prompt_template.format(ingredients=ingredients, staples=staples))
