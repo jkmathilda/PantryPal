@@ -2,7 +2,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PantryPal</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!--<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+  <link rel="stylesheet" href="../static/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
@@ -11,14 +12,14 @@
 <body>
   <div class="container ">
     <div class="logo-container">
-      <h class="logo-name">PantryPal</h> 
+      <a href="./home.html" class="no-style"><h class="logo-name">PantryPal</h> </a>
       <!-- we'll replace the logo with an actual image later-->
       <p class ="logo-img"> 🍲</p> 
     </div>
 
     <form method="POST">
     <div class="search-container">
-      <textarea name="inputText" class="search-bar" placeholder="Enter ingredients, separated by commas" rows=1> </textarea>
+      <textarea name="inputText" class="search-bar" placeholder="e.g. eggs, flour, rice..." rows=1></textarea>
       <div class="dropdown">
         <button class="staples-btn">Staples</button>
         <div class="dropdown-content">
@@ -36,7 +37,7 @@
       </div>
       <!--a href="{{ url_for('second') }}"-->
       <button class="search-btn"></button>
-    <!--</a>-->
+    <!--</a>--> 
     </div>
     </form>
 
