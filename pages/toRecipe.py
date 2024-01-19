@@ -34,13 +34,13 @@ def second_post():
         if staples == "": staples = staples + "pepper"
         else: staples = staples + ", pepper"
     data = provide_recipes(searchText, staples)
-    return render_template("second.html") #, *res* = data)
+    #return render_template("second.html") #, *res* = data)
 
 # placeholder for second html page, incase we want to update it
-@app.route("/second", methods=['GET', 'POST'])
-def second():
-    global data
-    return render_template("second.html") #, *res* = data)
+#@app.route("/second", methods=['GET', 'POST'])
+#def second():
+ #   global data
+ #   return render_template("second.html") #, *res* = data)
 
 def provide_recipes(ingredients, staples):
     api_key = os.getenv("OPENAI_API_KEY")
