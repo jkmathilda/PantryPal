@@ -79,7 +79,7 @@ def provide_recipes(ingredients, staples):
     )
     
     recipes = llm(prompt_template.format(ingredients=ingredients, staples=staples))
-    print(recipes)
+    return recipes
 
 def main():
     # Make user's api key work instead of our personal key
