@@ -57,10 +57,10 @@ def provide_recipes(ingredients, staples):
         RECIPE NAME: 
         INGREDIENTS:
         RECIPE: 
-        1.
-        2. 
-        3. 
-        4. 
+        1. ... \n
+        2. ... \n
+        3. ... \n
+        4. ... \n
         ...
         
         
@@ -70,16 +70,35 @@ def provide_recipes(ingredients, staples):
         0.25 teaspoon paprika, salt and pepper to taste
         RECIPE: 
         1. Place eggs in a saucepan and cover with cold water. Bring water to a boil and immediately remove from heat. 
-        Cover and let eggs stand in hot water for 10 to 12 minutes. Remove from hot water, cool, peel, and chop.
-        2. Place chopped eggs in a bowl; stir in mayonnaise, green onion, and mustard. Season with paprika, salt, and pepper. 
-        3. Stir and serve on your favorite bread or crackers.
+        Cover and let eggs stand in hot water for 10 to 12 minutes. Remove from hot water, cool, peel, and chop. \n
+        2. Place chopped eggs in a bowl; stir in mayonnaise, green onion, and mustard. Season with paprika, salt, and pepper. \n
+        3. Stir and serve on your favorite bread or crackers. \n
+        
+        RECIPE NAME: Sunny-side up
+        INGREDIENTS: olive oil, 2 eggs, salt and pepper
+        RECIPE: 
+        1. ... \n
         
         
         '''
     )
     
     recipes = llm(prompt_template.format(ingredients=ingredients, staples=staples))
+    
     return recipes
+
+
+def new_lists(lorn, lingr, lop):
+    
+    lorn.append(lorn[0]), lorn.append(lorn[1]), lorn.append(lorn[2])
+    lingr.append(lorn[0]), lingr.append(lorn[1]), lingr.append(lorn[2])
+    lop.append(lorn[0]), lop.append(lorn[1]), lop.append(lorn[2])
+    lorn.pop(0), lorn.pop(0), lorn.pop(0)
+    lingr.pop(0), lingr.pop(0), lingr.pop(0)
+    lop.pop(0), lop.pop(0), lop.pop(0)
+    
+    return lorn, lingr, lop
+
 
 def main():
     # Make user's api key work instead of our personal key
@@ -93,6 +112,32 @@ def main():
         print("Failed to load the key")
         # Display on screen? 
         # Fail to login and unable to use the program/website
+        
+    # Take ingredients, staples from the user inputs
+    ingredients, staples = # user input
+    recipes = provide_recipes(ingredients, staples)
+    lor = recipes.split('RECIPE NAME: ') # list of recipes
+    # List Of Recipe Names, List of INGRedients, List Of Processes
+    lorn, lingr, lop = [], [], []
+    for i in range(len(lor)):
+        lrecipe = lor[i].split(': ') # recipe in list splited by :
+        lorn.append(lrecipe[0][:-11])
+        lingr.append(lrecipe[1][:-6])
+        lop.append(lrecipe[-1])
+        i += 1
+        
+    # display 3 recipes
+    if len(lor) <= 3: 
+        pass # display only 3 with no arrow buttons
+    else: 
+        # display first 3 lorn[0], lingr[0], lop[0], lorn[1], lingr[1], lop[1], lor[2] ... 
+        lorn, lingr, lop = new_lists(lorn, lingr, lop)
+        
+        if # arrow button is clicked: 
+            # display first 3 recipes
+            lorn, lingr, lop = new_lists(lorn, lingr, lop)
+        
+
 
 
 if __name__ == '__main__':
