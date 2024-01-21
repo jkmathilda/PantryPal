@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 import os
 from langchain.prompts import PromptTemplate
 from langchain_openai import OpenAI
+from langchain.chains import LLMChain
+from langchain_community.utilities.dalle_image_generator import DallEAPIWrapper
+
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 data = ""
@@ -32,11 +35,11 @@ def second_post():
         if staples == "": staples = staples + "pepper"
         else: staples = staples + ", pepper"
     data = provide_recipes(searchText, staples)
-    #return render_template("second.html") #, *res* = data)
+    # return render_template("second.html") #, *res* = data)
 
 # placeholder for second html page, incase we want to update it
-#@app.route("/second", methods=['GET', 'POST'])
-#def second():
+# @app.route("/second", methods=['GET', 'POST'])
+# def second():
  #   global data
  #   return render_template("second.html") #, *res* = data)
 
@@ -88,16 +91,40 @@ def provide_recipes(ingredients, staples):
     return recipes
 
 
-def new_lists(lorn, lingr, lop):
+def provide_images(lorn):
+    api_key = os.getenv("OPENAI_API_KEY")
+    
+    llm = OpenAI(openai_api_key=api_key, temperature=0.9)
+    prompt = PromptTemplate(
+        input_variables=["image_desc"],
+        template="Generate an appetizing image of {image_desc} as if the image were to be shown on menus.",
+    )
+    chain = LLMChain(llm=llm, prompt=prompt)
+    
+    # List of URL
+    lurl = []
+    
+    for i in range(len(lorn)):
+        image_url = DallEAPIWrapper().run(chain.run(f"{lorn[i]}"))
+        lurl += image_url
+        i += 1
+        
+    return lurl
+        
+
+
+def new_lists(lorn, lingr, lop, lurl):
     
     lorn.append(lorn[0]), lorn.append(lorn[1]), lorn.append(lorn[2])
-    lingr.append(lorn[0]), lingr.append(lorn[1]), lingr.append(lorn[2])
-    lop.append(lorn[0]), lop.append(lorn[1]), lop.append(lorn[2])
+    lingr.append(lingr[0]), lingr.append(lingr[1]), lingr.append(lingr[2])
+    lop.append(lop[0]), lop.append(lop[1]), lop.append(lop[2])
+    lurl.append(lurl[0]), lurl.append(lurl[1]), lurl.append(lurl[2])
     lorn.pop(0), lorn.pop(0), lorn.pop(0)
     lingr.pop(0), lingr.pop(0), lingr.pop(0)
     lop.pop(0), lop.pop(0), lop.pop(0)
+    lurl.pop(0), lurl.pop(0), lurl.pop(0)
     
-    return lorn, lingr, lop
+    return lorn, lingr, lop, lurl
 
 
 def main():
@@ -126,16 +153,18 @@ def main():
         lop.append(lrecipe[-1])
         i += 1
         
+    lurl = provide_images(lorn)
+        
     # display 3 recipes
     if len(lor) <= 3: 
         pass # display only 3 with no arrow buttons
     else: 
         # display first 3 lorn[0], lingr[0], lop[0], lorn[1], lingr[1], lop[1], lor[2] ... 
-        lorn, lingr, lop = new_lists(lorn, lingr, lop)
+        lorn, lingr, lop = new_lists(lorn, lingr, lop, lurl)
         
         if # arrow button is clicked: 
             # display first 3 recipes
-            lorn, lingr, lop = new_lists(lorn, lingr, lop)
+            lorn, lingr, lop = new_lists(lorn, lingr, lop, lurl)
         
 
 
