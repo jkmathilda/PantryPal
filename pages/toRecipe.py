@@ -93,6 +93,7 @@ def provide_recipes(ingredients, staples):
 
 def provide_images(lorn):
     api_key = os.getenv("OPENAI_API_KEY")
+    # api_key = user_inputted_API_KEY
     
     llm = OpenAI(openai_api_key=api_key, temperature=0.9)
     prompt = PromptTemplate(
