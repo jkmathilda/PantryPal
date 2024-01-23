@@ -6,13 +6,13 @@ app = Flask(__name__)
 def home():
    return render_template('home.html')
 
-@app.route('/recipe')
-def recipe():
-   return render_template('recipe.html')
+# @app.route('/recipe')
+# def recipe():
+#    return render_template('recipe.html')
 
-@app.route('/ingredients')
-def recipe():
-   return render_template('ingredients.html')
+# @app.route('/ingredients')
+# def recipe():
+#    return render_template('ingredients.html')
 
 @app.route('/test')
 def test():
