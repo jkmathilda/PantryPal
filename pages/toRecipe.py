@@ -132,7 +132,7 @@ def main():
     # Make user's api key work instead of our personal key
     if load_dotenv():
         print("Successful login")
-        #print(provide_recipes())
+        # print(provide_recipes())
         # Display on screen? 
         # Successful login and able to use the program/website
         
@@ -163,13 +163,11 @@ def main():
         # display first 3 lorn[0], lingr[0], lop[0], lorn[1], lingr[1], lop[1], lor[2] ... 
         lorn, lingr, lop = new_lists(lorn, lingr, lop, lurl)
         
-        if # arrow button is clicked: 
+        if # arrow button is clicked:
             # display first 3 recipes
             lorn, lingr, lop = new_lists(lorn, lingr, lop, lurl)
-        
-
 
 
 if __name__ == '__main__':
-    #main()
+    # main()
     app.run()
