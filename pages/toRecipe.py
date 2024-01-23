@@ -5,7 +5,7 @@ from langchain.prompts import PromptTemplate
 from langchain_openai import OpenAI
 from langchain.chains import LLMChain
 from langchain_community.utilities.dalle_image_generator import DallEAPIWrapper
-
+ 
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 data = ""
