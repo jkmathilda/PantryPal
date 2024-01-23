@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!--<link rel="stylesheet" href="../static/style.css">-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
@@ -17,8 +18,10 @@
         <p class ="logo-img"> 🍲</p> 
     </div>
 
-    <p class="text"> Select one of the options below to get started!</p>
-
+    <p class="text"> Enter your API key and select one of the options below to get started!</p>
+    <div class="search-container">
+        <textarea name="inputText" class="search-bar" placeholder="API Key" rows=1></textarea>
+    </div>
     <nav class = "navigation-container">
         
         <a href="./index.html" id="left"><button type = "button">Ingredients → Recipe</button></a>
