@@ -18,7 +18,7 @@
       <p class ="logo-img"> 🍲</p> 
     </div>
 
-    <form method="POST" action="/search">
+    <form method="POST" action="/toRecipe">
       <div class="search-container">
         <textarea name="inputContent" class="search-bar" placeholder="e.g. eggs, flour, rice..." rows=1></textarea>
         <div class="dropdown" id="dropdownContent">
@@ -39,5 +39,7 @@
         <button class="search-btn"></button>
       </div>
     </form>
+
+    {{recipe_name}}
   </div>
 </body>
