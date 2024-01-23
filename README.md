@@ -55,6 +55,7 @@ or select 'Your key' and enter your API key.
 
 ### Running the Application
 
+    python app.py
     
 ### Deactivate the virtual environment
 
