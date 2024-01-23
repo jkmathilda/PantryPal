@@ -15,6 +15,7 @@ def root():
     main()
     return render_template("index.html")
 
+
 @app.route("/", methods=['POST'])
 def second_post():
     global data
