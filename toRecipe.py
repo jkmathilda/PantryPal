@@ -1,9 +1,9 @@
-from dotenv import load_dotenv
 import os
 from langchain.prompts import PromptTemplate
 from langchain_openai import OpenAI
 from langchain.chains import LLMChain
 from langchain_community.utilities.dalle_image_generator import DallEAPIWrapper
+
 
 
 # lorn
@@ -32,7 +32,7 @@ def provide_recipenames(ingredients, staples):
         '''
     )
     
-    recipe_names = llm(prompt_template.format(ingredients=ingredients, staples=staples))
+    recipe_names = llm.invoke(prompt_template.format(ingredients=ingredients, staples=staples))
     
     sample_list = recipe_names.split('/')
     
@@ -78,7 +78,7 @@ def provide_recipe(ingredients, staples, lorn):
     lingr, lop = [], []
     
     for i in enumerate(lorn):
-        single_recipe = llm(prompt_template.format(ingredients=ingredients, staples=staples, dish=i))
+        single_recipe = llm.invoke(prompt_template.format(ingredients=ingredients, staples=staples, dish=i))
         sample_list = single_recipe.split(':')
         
         lingr.append(sample_list[1][:-6])
@@ -87,6 +87,7 @@ def provide_recipe(ingredients, staples, lorn):
     return lingr, lop
 
 
+# lurl
 def provide_images(lorn):
     api_key = os.getenv("OPENAI_API_KEY")
     # api_key = user_inputted_API_KEY
@@ -102,12 +103,22 @@ def provide_images(lorn):
     lurl = []
     
     for i in range(len(lorn)):
-        image_url = DallEAPIWrapper().run(chain.run(f"{lorn[i]}"))
+        image_url = DallEAPIWrapper().run(chain.invoke(f"{lorn[i]}"))
         lurl += image_url
         i += 1
         
     return lurl
         
+
+# Produce lorn, lingr, lop, lurl
+def combine(ingredients, staples):
+    lorn, lingr, lop, lurl = [], [], [], []
+    
+    lorn = provide_recipenames(ingredients, staples)
+    lingr, lop = provide_recipe(ingredients, staples, lorn)
+    lurl = provide_images(lorn)
+    
+    return lorn, lingr, lop, lurl
 
 
 def new_lists(lorn, lingr, lop, lurl):
@@ -123,47 +134,3 @@ def new_lists(lorn, lingr, lop, lurl):
     
     return lorn, lingr, lop, lurl
 
-
-def main():
-    # Make user's api key work instead of our personal key
-    if load_dotenv():
-        print("Successful login")
-        # print(provide_recipes())
-        # Display on screen? 
-        # Successful login and able to use the program/website
-        
-    else: 
-        print("Failed to load the key")
-        # Display on screen? 
-        # Fail to login and unable to use the program/website
-        
-    # # Take ingredients, staples from the user inputs
-    # ingredients, staples = # user input
-    # recipes = provide_recipes(ingredients, staples)
-    # lor = recipes.split('RECIPE NAME: ') # list of recipes
-    # # List Of Recipe Names, List of INGRedients, List Of Processes
-    # lorn, lingr, lop = [], [], []
-    # for i in range(len(lor)):
-    #     lrecipe = lor[i].split(': ') # recipe in list splited by :
-    #     lorn.append(lrecipe[0][:-11])
-    #     lingr.append(lrecipe[1][:-6])
-    #     lop.append(lrecipe[-1])
-    #     i += 1
-        
-    # lurl = provide_images(lorn)
-        
-    # # display 3 recipes
-    # if len(lor) <= 3: 
-    #     pass # display only 3 with no arrow buttons
-    # else: 
-    #     # display first 3 lorn[0], lingr[0], lop[0], lorn[1], lingr[1], lop[1], lor[2] ... 
-    #     lorn, lingr, lop = new_lists(lorn, lingr, lop, lurl)
-        
-    #     if # arrow button is clicked:
-    #         # display first 3 recipes
-    #         lorn, lingr, lop = new_lists(lorn, lingr, lop, lurl)
-
-
-if __name__ == '__main__':
-    # main()
-    app.run()
