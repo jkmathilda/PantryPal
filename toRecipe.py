@@ -52,7 +52,8 @@ def provide_recipe(ingredients, staples, lorn):
     prompt_template = PromptTemplate.from_template(
         '''
         Provide a recipe for {dish} for 2 servings with only {ingredients}, {staples} as ingredients. 
-        The recipe doesn't have to use all ingredients, but shouldn't use any other ingredients. 
+        The recipe doesn't have to use all ingredients, but shouldn't use any other ingredients.
+        Return the response in less than 16384 characters. 
         
         Return in the form:
         INGREDIENTS:
