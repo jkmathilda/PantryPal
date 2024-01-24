@@ -6,28 +6,63 @@ from langchain.chains import LLMChain
 from langchain_community.utilities.dalle_image_generator import DallEAPIWrapper
 
 
-
-def provide_recipes(ingredients, staples):
+# lorn
+def provide_recipenames(ingredients, staples):
     api_key = os.getenv("OPENAI_API_KEY")
     llm = OpenAI(openai_api_key=api_key)
     
     prompt_template = PromptTemplate.from_template(
-        '''Provide recipes (max 21 recipes) for 2 servings you can cook with the provided ingredients. Do not provide any dishes that require
-        ingredients other than: {ingredients}, {staples} However, you are allowed to provide a recipe that doesn't use all ingredients. 
+        '''
+        Provide at least one but no more than 21 dishes you can cook with ONLY {ingredients}, {staples}. DO NOT provide any 
+        recipes that require ingredients other than the provided ingredients. However, you are allowed to provide a recipe that
+        doesn't use all ingredients. 
+        
+        Return ONLY the NAME of the recipe in this from (separate by commas in one line):
+        "1. (recipe name) / 2. (recipe name) / 3. (recipe name) ... "
+        
+        <Example>
+        When the provided ingredient is (egg, carrots, salt, oil, potato),
+        Good Example:
+        "1. Egg Salad / 2. Sunny-side up / 3. Scrambled eggs / 4. Egg roll / 5. Egg pudding /6. Boiled Eggs"
+        
+        Bad example: 
+        "1. Egg and avocado toast / 2. Egg and tuna sandwich"
+        (Because avocado, bread and tuna is not one of the provided ingredients)
+        
+        '''
+    )
+    
+    recipe_names = llm(prompt_template.format(ingredients=ingredients, staples=staples))
+    
+    sample_list = recipe_names.split('/')
+    
+    lorn = []
+    
+    for i in enumerate(sample_list):
+        lorn.append(i)
+    
+    return lorn
+    
+
+# lingr, lop
+def provide_recipe(ingredients, staples, lorn):
+    api_key = os.getenv("OPENAI_API_KEY")
+    llm = OpenAI(openai_api_key=api_key)
+    
+    prompt_template = PromptTemplate.from_template(
+        '''
+        Provide a recipe for {dish} for 2 servings with only {ingredients}, {staples} as ingredients. 
+        The recipe doesn't have to use all ingredients, but shouldn't use any other ingredients. 
         
         Return in the form:
-        RECIPE NAME: 
         INGREDIENTS:
         RECIPE: 
         1. ... \n
         2. ... \n
         3. ... \n
         4. ... \n
-        ...
-        
         
         <Example>
-        RECIPE NAME: Egg Salad
         INGREDIENTS: 8 eggs, 0.5 cup mayonnaise, 0.25 cup chopped green onion, 1 teaspoon prepared yellow mustard
         0.25 teaspoon paprika, salt and pepper to taste
         RECIPE: 
@@ -35,19 +70,21 @@ def provide_recipes(ingredients, staples):
         Cover and let eggs stand in hot water for 10 to 12 minutes. Remove from hot water, cool, peel, and chop. \n
         2. Place chopped eggs in a bowl; stir in mayonnaise, green onion, and mustard. Season with paprika, salt, and pepper. \n
         3. Stir and serve on your favorite bread or crackers. \n
-        
-        RECIPE NAME: Sunny-side up
-        INGREDIENTS: olive oil, 2 eggs, salt and pepper
-        RECIPE: 
-        1. ... \n
-        
+        4. Bon Appetite!
         
         '''
     )
     
-    recipes = llm(prompt_template.format(ingredients=ingredients, staples=staples))
+    lingr, lop = [], []
     
-    return recipes
+    for i in enumerate(lorn):
+        single_recipe = llm(prompt_template.format(ingredients=ingredients, staples=staples, dish=i))
+        sample_list = single_recipe.split(':')
+        
+        lingr.append(sample_list[1][:-6])
+        lop.append(sample_list[2])
+    
+    return lingr, lop
 
 
 def provide_images(lorn):
