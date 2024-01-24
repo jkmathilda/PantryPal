@@ -106,30 +106,6 @@ def provide_images(lorn):
         i += 1
         
     return lurl
-
-# # lurl (v2)
-# def provide_images(lorn):
-#     api_key = os.getenv("OPENAI_API_KEY")
-#     llm = OpenAI(openai_api_key=api_key, temperature=0.9)
-    
-#     # List of URLs
-#     lurl = []
-    
-#     for desc in lorn:
-#         # Generate the prompt string
-#         prompt = f"Generate an appetizing image of {desc} as if the image were to be shown on menus."
-        
-#         # Invoke the API call with the prompt string
-#         try:
-#             response = llm.invoke(prompt)
-#             # Assuming the response contains a URL or list of URLs for the images
-#             image_url = response.get('url')  # Replace with the actual key in the response
-#             lurl.append(image_url)
-#         except Exception as e:
-#             print(f"An error occurred: {e}")
-    
-#     return lurl
-
         
 
 # Produce lorn, lingr, lop, lurl
