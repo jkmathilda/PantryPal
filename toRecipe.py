@@ -63,14 +63,11 @@ def provide_recipe(ingredients, staples, lorn):
         4. ... \n
         
         <Example>
-        INGREDIENTS: 8 eggs, 0.5 cup mayonnaise, 0.25 cup chopped green onion, 1 teaspoon prepared yellow mustard
-        0.25 teaspoon paprika, salt and pepper to taste
+        INGREDIENTS: 2 Avocado, 200 mL Water, 2 Banana
         RECIPE: 
-        1. Place eggs in a saucepan and cover with cold water. Bring water to a boil and immediately remove from heat. 
-        Cover and let eggs stand in hot water for 10 to 12 minutes. Remove from hot water, cool, peel, and chop. \n
-        2. Place chopped eggs in a bowl; stir in mayonnaise, green onion, and mustard. Season with paprika, salt, and pepper. \n
-        3. Stir and serve on your favorite bread or crackers. \n
-        4. Bon Appetite!
+        1. Peel avocado and banana peels. \n
+        2. Slice bananas into 4 to 6 pieces and avocadoes into 6 to 8 pieces. \n
+        3. Put them in a mixer and serve it in a glass cup!
         
         '''
     )
