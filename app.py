@@ -46,13 +46,14 @@ def recipe():
             #         lorn, lingr, lop = new_lists(lorn, lingr, lop, lurl)
             
             
+            image_url = lurl[0]
             
-            
-            recipes = str(len(lurl))
+            recipes = lorn[0]
         
             return render_template(
                 'toRecipe.html', 
-                recipe_name=recipes
+                recipe_name=recipes,
+                image_url=image_url
             )
         
     else: 
