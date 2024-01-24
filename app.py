@@ -53,7 +53,7 @@ def recipe():
             
             
             
-            recipes = lop(1)
+            recipes = lop[1]
         
             return render_template(
                 'toRecipe.html', 
