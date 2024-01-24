@@ -13,7 +13,7 @@ def provide_recipenames(ingredients, staples):
     
     prompt_template = PromptTemplate.from_template(
         '''
-        Provide at least one but no more than 21 dishes you can cook with ONLY {ingredients}, {staples}. DO NOT provide any 
+        Provide 3 dishes you can cook with ONLY {ingredients}, {staples}. DO NOT provide any 
         recipes that require ingredients other than the provided ingredients. However, you are allowed to provide a recipe that
         doesn't use all ingredients. 
         
@@ -87,27 +87,50 @@ def provide_recipe(ingredients, staples, lorn):
     return lingr, lop
 
 
-# lurl
+# # lurl
+# def provide_images(lorn):
+#     api_key = os.getenv("OPENAI_API_KEY")
+#     # api_key = user_inputted_API_KEY
+    
+#     llm = OpenAI(openai_api_key=api_key, temperature=0.9)
+#     prompt = PromptTemplate(
+#         input_variables=["image_desc"],
+#         template="Generate an appetizing image of {image_desc} as if the image were to be shown on menus.",
+#     )
+#     chain = LLMChain(llm=llm, prompt=prompt)
+    
+#     # List of URL
+#     lurl = []
+    
+#     for i in range(len(lorn)):
+#         image_url = DallEAPIWrapper().run(chain.invoke(f"{lorn[i]}"))
+#         lurl += image_url
+#         i += 1
+        
+#     return lurl
+
 def provide_images(lorn):
     api_key = os.getenv("OPENAI_API_KEY")
-    # api_key = user_inputted_API_KEY
-    
     llm = OpenAI(openai_api_key=api_key, temperature=0.9)
-    prompt = PromptTemplate(
-        input_variables=["image_desc"],
-        template="Generate an appetizing image of {image_desc} as if the image were to be shown on menus.",
-    )
-    chain = LLMChain(llm=llm, prompt=prompt)
     
-    # List of URL
+    # List of URLs
     lurl = []
     
-    for i in range(len(lorn)):
-        image_url = DallEAPIWrapper().run(chain.invoke(f"{lorn[i]}"))
-        lurl += image_url
-        i += 1
+    for desc in lorn:
+        # Generate the prompt string
+        prompt = f"Generate an appetizing image of {desc} as if the image were to be shown on menus."
         
+        # Invoke the API call with the prompt string
+        try:
+            response = llm.invoke(prompt)
+            # Assuming the response contains a URL or list of URLs for the images
+            image_url = response.get('url')  # Replace with the actual key in the response
+            lurl.append(image_url)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+    
     return lurl
+
         
 
 # Produce lorn, lingr, lop, lurl
