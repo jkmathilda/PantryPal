@@ -28,13 +28,16 @@ def recipe():
         if form_data.get('pepper'):
             staples += "pepper"
             
+        if len(ingredients.strip()) == 0:
+            return 'Not enough ingredients inputted'
         
-        recipes = toRecipe.provide_recipenames(ingredients, staples)
-    
-        return render_template(
-            'toRecipe.html', 
-            recipe_name=recipes
-        )
+        else: 
+            recipes = toRecipe.provide_recipenames(ingredients, staples)
+        
+            return render_template(
+                'toRecipe.html', 
+                recipe_name=recipes
+            )
         
     else: 
         return render_template('toRecipe.html')
