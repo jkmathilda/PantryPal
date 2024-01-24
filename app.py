@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from flask import Flask, render_template, request
 import toRecipe
 
@@ -12,6 +13,10 @@ def home():
 
 @app.route('/toRecipe', methods = ["GET", "POST"])
 def recipe():
+    
+    if not load_dotenv():
+        print("Failed to load the key")
+        exit(1)
     
     if request.method == 'POST':
         form_data = request.form
@@ -32,7 +37,23 @@ def recipe():
             return 'Not enough ingredients inputted'
         
         else: 
-            recipes = toRecipe.provide_recipenames(ingredients, staples)
+            lorn, lingr, lop, lurl = toRecipe.combine(ingredients, staples)
+            
+            # # display 3 recipes
+            # if len(lor) <= 3: 
+            #     pass # display only 3 with no arrow buttons
+            # else: 
+            #     # display first 3 lorn[0], lingr[0], lop[0], lorn[1], lingr[1], lop[1], lor[2] ... 
+            #     lorn, lingr, lop = new_lists(lorn, lingr, lop, lurl)
+                
+            #     if # arrow button is clicked:
+            #         # display first 3 recipes
+            #         lorn, lingr, lop = new_lists(lorn, lingr, lop, lurl)
+            
+            
+            
+            
+            recipes = lop(1)
         
             return render_template(
                 'toRecipe.html', 
