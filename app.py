@@ -29,8 +29,7 @@ def recipe():
             staples += "pepper"
             
         
-        recipes = toRecipe.provide_recipes(ingredients, staples)
-    
+        recipes = toRecipe.provide_recipenames(ingredients, staples)
     
         return render_template(
             'toRecipe.html', 
