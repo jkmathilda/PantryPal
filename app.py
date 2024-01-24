@@ -21,17 +21,12 @@ def recipe():
     if request.method == 'POST':
         form_data = request.form
         ingredients = form_data['inputContent']
+        staples_list = 'butter', 'oil', 'water', 'salt', 'pepper'
         staples = ""
-        if form_data.get('butter'):
-            staples += "butter,"
-        if form_data.get('oil'):
-            staples += "oil,"
-        if form_data.get('water'):
-            staples += "water,"
-        if form_data.get('salt'):
-            staples += "salt,"
-        if form_data.get('pepper'):
-            staples += "pepper"
+        
+        for i in staples_list:
+            if form_data[i] is not None:
+                staples += i + ", "
             
         if len(ingredients.strip()) == 0:
             return 'Not enough ingredients inputted'
@@ -53,7 +48,7 @@ def recipe():
             
             
             
-            recipes = lop[1]
+            recipes = str(len(lurl))
         
             return render_template(
                 'toRecipe.html', 
