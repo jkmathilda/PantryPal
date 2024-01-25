@@ -1,4 +1,4 @@
-body {
+* {
   font-family: 'Poppins'
 }
 
@@ -6,22 +6,27 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 80px;
+  margin-bottom: 30px;
+
 }
 
 .logo-name {
-  font-size: 65px;
+  font-size: 72px;
   font-style: normal;
   text-align: center;
 }
 
 .logo-img {
-  font-size: 65px;
   margin-left: 15px;
+  height: 80px;
+  width: 78px;
 }
 
 .search-container {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 }
 
 .search-bar {
@@ -32,7 +37,7 @@ body {
   border-width: 1.5px;
   font-size: 15px;
   font-family: 'Poppins';
-  max-height: 50.5px;
+  height: 50.5px;
   width: 370px;
   box-sizing: border-box;
 }
@@ -50,7 +55,7 @@ label {
   font-size: 15px;
 }
 
-.dropdown-content {
+.dropdown-options {
   display: none;
   background-color: black;
   color: white;
@@ -58,6 +63,8 @@ label {
   border-radius: 4px;
   padding-left: 4px;  
   padding-right: 4px; 
+  position: absolute;
+  width: 92px;
 }
 
 input[type=checkbox] {
@@ -66,7 +73,10 @@ input[type=checkbox] {
   margin-bottom: 10px;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown {
+  display:inline-block;
+}
+.dropdown:hover .dropdown-options {
   display: block;
 }
 
@@ -105,26 +115,12 @@ input[type=checkbox] {
 }
 
 button {
-  background-color: #7e637b;
-  border: black;
-  border-radius: 8px;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
   transition: background-color 0.5s;
-  margin-top: 12px;
 }
 
 button:hover {
-  background-color: rgb(60, 45, 55);
+  background-color: rgb(107, 154, 255);
   cursor:pointer;
-}
-
-button:active {
-  background-color: rgb(0, 0, 0);
 }
 
 .navigation-container {
@@ -144,4 +140,55 @@ button:active {
 .no-style {
   text-decoration:none;
   color:inherit;
+}
+
+.recipe-img {
+  border-radius:8px;
+  max-width:100%;
+  height: 360px;
+  margin-bottom:-5px;
+}
+
+.results-box{
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 60px;
+}
+
+.box {
+  min-width: 300px;
+  width: 300px;
+  height: 400px;
+  justify-content: center;
+  text-align: center;
+}
+
+.title{
+  font-size: 23px;
+  margin-bottom: 0;
+}
+
+.dropdown-img{
+  width: 15px;
+  height: 8px;
+  display:inline-block;
+}
+
+.collapsible {
+  background-color: #000000;
+  border: black;
+  border-radius: 8px;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.panel {
+  display: none;
 }
