@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from flask import Flask, render_template, request
-import toRecipe
+import pages.toRecipe as toRecipe
 
 app = Flask(__name__)
 
