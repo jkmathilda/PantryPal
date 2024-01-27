@@ -6,7 +6,7 @@
 * [Use](#Use) 
 
 # Introduction
-PantryPal is a project to suggest various recipies  
+PantryPal is a website that provides ...
 
 # Use 
 To use do this
