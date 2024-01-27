@@ -8,8 +8,6 @@
 # Introduction
 PantryPal is a website that provides ...
 
-# Use 
-To use do this
 
 # Getting Started
 To get started with this project, you'll need to clone the repository and set up a virtual environment. This will allow you to install the required dependencies without affecting your system-wide Python installation.
