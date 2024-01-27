@@ -5,7 +5,6 @@ from langchain.chains import LLMChain
 from langchain_community.utilities.dalle_image_generator import DallEAPIWrapper
 
 
-
 # lorn
 def provide_recipenames(ingredients, staples):
     api_key = os.getenv("OPENAI_API_KEY")
@@ -101,6 +100,7 @@ def provide_images(lorn):
     lurl = []
     
     for i in range(len(lorn)):
+        print(f'[toRecipe] drawing images {i} Processing...')
         image_url = DallEAPIWrapper().run(chain.run(lorn[i]))
         lurl.append(image_url) 
         i += 1
@@ -110,17 +110,22 @@ def provide_images(lorn):
 
 # Produce lorn, lingr, lop, lurl
 def combine(ingredients, staples):
+    print('[toRecipe] Start Processing...')
     lorn, lingr, lop, lurl = [], [], [], []
-    
+
+    print('[toRecipe] provide_recipenames Processing...')
     lorn = provide_recipenames(ingredients, staples)
+
+    print('[toRecipe] provide_recipe Processing...')
     lingr, lop = provide_recipe(ingredients, staples, lorn)
+
+    print('[toRecipe] provide_images Processing...')
     lurl = provide_images(lorn)
     
     return lorn, lingr, lop, lurl
 
 
 def new_lists(lorn, lingr, lop, lurl):
-    
     lorn.append(lorn[0]), lorn.append(lorn[1]), lorn.append(lorn[2])
     lingr.append(lingr[0]), lingr.append(lingr[1]), lingr.append(lingr[2])
     lop.append(lop[0]), lop.append(lop[1]), lop.append(lop[2])

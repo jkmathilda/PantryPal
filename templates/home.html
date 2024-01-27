@@ -2,7 +2,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home-styles.css') }}">
     <!--<link rel="stylesheet" href="../static/style.css">-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,20 +12,30 @@
 </head>
 
 <body>
-    <div class="logo-container">
-        <h class="logo-name">PantryPal</h> 
-        <!-- Replace logo -->
-        <p class ="logo-img"> 🍲</p> 
-    </div>
-
-    <p class="text"> Enter your API key and select one of the options below to get started!</p>
-    <div class="search-container">
-        <textarea name="inputText" class="search-bar" placeholder="API Key" rows=1></textarea>
-    </div>
-    <nav class = "navigation-container">
+    <div class="container">
         
-        <a href="/toRecipe" id="left"><button type = "button">Ingredients → Recipe</button></a>
-        <!-- Replace this link when we finish the other page -->
-        <a href="./pantryTracker"><button type = "button">Pantry Tracker</button></a>
-    </nav>
+        <<<<<<< Updated upstream
+                <a href="./zindex.html" id="left"><button type = "button">Ingredients → Recipe</button></a>
+                <!-- Replace this link when we finish the other page -->
+                <a href="./zindex.html"><button type = "button">Recipe → Ingredients</button></a>
+            </nav>
+        =======
+                <div class="text-container">
+                    <h class="logo-name">PantryPal</h> 
+                    <p class="text"> Enter your API key and select one of the options below to get started!</p>
+                    <div class="search-container">
+                        <textarea name="inputText" class="search-bar" placeholder="API Key" rows=1 required></textarea>
+                    </div>
+                    <nav class = "navigation-container">
+                        <a href="/toRecipe" id="left"><button type = "button">Ingredients → Recipe</button></a>
+                        <!-- Replace this link when we finish the other page -->
+                        <a href="/pantryTracker"><button type = "button">Pantry Tracker</button></a>
+                    </nav>
+                </div>
+        
+                <div class="img-container">
+                    <img class="logo-img" src="/static/logo.png">
+                </div>
+            </div>
+        >>>>>>> Stashed changes
 </body>

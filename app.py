@@ -10,17 +10,20 @@ app = Flask(__name__)
 def home():
    return render_template('home.html')
 
+@app.route('/zindex.html')
+def zindex():
+   return render_template('zindex.html')
 
 @app.route('/toRecipe', methods = ["GET", "POST"])
 def recipe():
     
     if not load_dotenv():
-        print("Failed to load the key")
-        exit(1)
+        print("Failed to load the key. check .env file")
+        return render_template('error.html')
     
     if request.method == 'POST':
         form_data = request.form
-        ingredients = form_data['inputContent']
+        ingredients = form_data['inputStaples']
         staples_list = 'butter', 'oil', 'water', 'salt', 'pepper'
         staples = ""
         
@@ -29,7 +32,8 @@ def recipe():
                 staples += i + ", "
             
         if len(ingredients.strip()) == 0:
-            return 'Not enough ingredients inputted'
+            print('Not enough ingredients inputted')
+            return render_template('error.html')
         
         else: 
             lorn, lingr, lop, lurl = toRecipe.combine(ingredients, staples)
@@ -50,11 +54,7 @@ def recipe():
             
             recipes = lorn[0]
         
-            return render_template(
-                'toRecipe.html', 
-                recipe_name=recipes,
-                image_url=image_url
-            )
+            return render_template('toRecipe.html', recipe_name=recipes, image_url=image_url)
         
     else: 
         return render_template('toRecipe.html')
