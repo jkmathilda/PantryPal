@@ -55,17 +55,6 @@ def recipe():
         else: 
             lorn, lingr, lop, lurl = toRecipe.combine(ingredients, staples)
             
-            # # display 3 recipes
-            # if len(lor) <= 3: 
-            #     pass # display only 3 with no arrow buttons
-            # else: 
-            #     # display first 3 lorn[0], lingr[0], lop[0], lorn[1], lingr[1], lop[1], lor[2] ... 
-            #     lorn, lingr, lop = new_lists(lorn, lingr, lop, lurl)
-                
-            #     if # arrow button is clicked:
-            #         # display first 3 recipes
-            #         lorn, lingr, lop = new_lists(lorn, lingr, lop, lurl)
-            
             
             image_url = lurl[0]
             

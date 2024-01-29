@@ -18,8 +18,7 @@
             <p class="text"> Enter your API key and select one of the options below to get started!</p>
             <form method="POST" action="/toRecipe">
                 <div class="search-container">
-                    <!-- <input type="text" id="inputAPIKey" name="inputAPIKey"  class="search-bar" placeholder="API Key (sk-)" required> -->
-                    <textarea name="inputAPIKey" class="search-bar" placeholder="API Key (sk-)" rows=1 required></textarea>
+                    <textarea name="inputAPIKey" class="search-bar" placeholder="API Key (sk-)" rows=1 oninput="this.value = this.value.replace(/\n/g,'')" required></textarea>
                 </div>
                 <nav class = "navigation-container">
                     <button>Ingredients → Recipe</button>
