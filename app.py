@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 import pages.toRecipe as toRecipe
+import os
 
 app = Flask(__name__)
 
@@ -17,20 +18,36 @@ def zindex():
 @app.route('/toRecipe', methods = ["GET", "POST"])
 def recipe():
     
-    if not load_dotenv():
-        print("Failed to load the key. check .env file")
-        return render_template('error.html')
+    print(f'### {request.full_path} : {request.method}')
+    if request.method == 'GET':
+        return render_template('toRecipe.html')
+
+    form_data = request.form
+    print(f'### form_data : {form_data}')
     
-    if request.method == 'POST':
-        form_data = request.form
+    # from home.html to this pages
+    if request.method == 'POST' and request.form.get('inputAPIKey'):
+        inputAPIKey = request.form.get('inputAPIKey')
+        if len(inputAPIKey) != 51:
+            print('### read .env')
+            if not load_dotenv():
+                print("Failed to load the key. check .env file")
+                return render_template('error.html')
+            inputAPIKey = os.getenv('OPENAI_API_KEY')
+        print(f'### OPENAI_API_KEY : {inputAPIKey}')
+        return render_template('toRecipe.html')
+    
+    # from toRecipe.html to this pages
+    elif request.method == 'POST' and request.form.get('inputStaples'):
         ingredients = form_data['inputStaples']
-        staples_list = 'butter', 'oil', 'water', 'salt', 'pepper'
-        staples = ""
+        staples_list = form_data.getlist('listStaples')  # 'butter', 'oil', 'water', 'salt', 'pepper'
+        print(f'### stape list {type(staples_list)} : {staples_list}')
         
-        for i in staples_list:
-            if form_data[i] is not None:
-                staples += i + ", "
-            
+        staples = ""
+        staples = ", ".join(staples_list)
+        print(f'### list to String : {staples}')
+
+                    
         if len(ingredients.strip()) == 0:
             print('Not enough ingredients inputted')
             return render_template('error.html')
@@ -74,6 +91,7 @@ def ingredients():
 #     else:
 #         # return render_template('toRecipe.html')
 #         return 'This is Search Page!'
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=80, debug=True)
