@@ -5,11 +5,12 @@
 * [Getting Started](#Getting-Started)
 * [Use](#Use) 
 
-# Introduction
-PantryPal is a website that provides ...
+
+## Introduction
+PantryPal is a dynamic online service focused on improving pantry management and decreasing unnecessary food spoilage. By tracking food items and offering recipe suggestions for those about to expire, it helps users to efficiently use their ingredients and avoid waste. 
 
 
-# Getting Started
+## Getting Started
 To get started with this project, you'll need to clone the repository and set up a virtual environment. This will allow you to install the required dependencies without affecting your system-wide Python installation.
 
 ### Cloning the Repository
@@ -27,13 +28,9 @@ To get started with this project, you'll need to clone the repository and set up
     echo '.env'  >> .gitignore
     echo '.venv' >> .gitignore
 
-    ls -la
-
     python -m venv .venv        # create a new virtual environment
 
     source .venv/bin/activate   # Activate the virtual environment
-
-    python -V                   # Check a python version
 
 ### Install the required dependencies
 
@@ -59,3 +56,10 @@ or select 'Your key' and enter your API key.
 
     deactivate
 
+
+## Developer Team
+
+- [Mathilda Lee](https://github.com/jkmathilda)  
+- [Sasha Boruk](https://github.com/alebora)
+- [Zilin Weng](https://github.com/zxlinw)
+- [Sarah Yoon](https://github.com/Yooniii)
