@@ -4,10 +4,15 @@ from langchain_openai import OpenAI
 from langchain.chains import LLMChain
 from langchain_community.utilities.dalle_image_generator import DallEAPIWrapper
 
+# get openai_api_key
+def get_openai_api_key():
+    api_key = os.getenv("OPENAI_API_KEY")
+    # api_key = openai_api_key
+
 
 # lorn
 def provide_recipenames(ingredients, staples):
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = get_openai_api_key()
     llm = OpenAI(openai_api_key=api_key)
     
     prompt_template = PromptTemplate.from_template(
@@ -45,7 +50,7 @@ def provide_recipenames(ingredients, staples):
 
 # lingr, lop
 def provide_recipe(ingredients, staples, lorn):
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = get_openai_api_key()
     llm = OpenAI(openai_api_key=api_key)
     
     prompt_template = PromptTemplate.from_template(
@@ -86,7 +91,7 @@ def provide_recipe(ingredients, staples, lorn):
 
 # lurl
 def provide_images(lorn):
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = get_openai_api_key()
     # api_key = user_inputted_API_KEY
     
     llm = OpenAI(openai_api_key=api_key, temperature=0.9)
