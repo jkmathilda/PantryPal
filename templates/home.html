@@ -13,29 +13,24 @@
 
 <body>
     <div class="container">
-        
-        <<<<<<< Updated upstream
-                <a href="./zindex.html" id="left"><button type = "button">Ingredients → Recipe</button></a>
-                <!-- Replace this link when we finish the other page -->
-                <a href="./zindex.html"><button type = "button">Recipe → Ingredients</button></a>
-            </nav>
-        =======
-                <div class="text-container">
-                    <h class="logo-name">PantryPal</h> 
-                    <p class="text"> Enter your API key and select one of the options below to get started!</p>
-                    <div class="search-container">
-                        <textarea name="inputText" class="search-bar" placeholder="API Key" rows=1 required></textarea>
-                    </div>
-                    <nav class = "navigation-container">
-                        <a href="/toRecipe" id="left"><button type = "button">Ingredients → Recipe</button></a>
-                        <!-- Replace this link when we finish the other page -->
-                        <a href="/pantryTracker"><button type = "button">Pantry Tracker</button></a>
-                    </nav>
+        <div class="text-container">
+            <h class="logo-name">PantryPal</h> 
+            <p class="text"> Enter your API key and select one of the options below to get started!</p>
+            <form method="POST" action="/toRecipe">
+                <div class="search-container">
+                    <textarea name="inputAPIKey" class="search-bar" placeholder="API Key (sk-)" rows=1 required></textarea>
                 </div>
-        
-                <div class="img-container">
-                    <img class="logo-img" src="/static/logo.png">
-                </div>
-            </div>
-        >>>>>>> Stashed changes
+                <nav class = "navigation-container">
+                    <button>Ingredients → Recipe</button>
+                    <p>&nbsp;</p>
+                    <!-- <a href="/toRecipe" id="left"><button type = "button">Ingredients → Recipe</button></a> -->
+                    <a href="/pantryTracker"><button type="button">Pantry Tracker</button></a>
+                </nav>
+            </form>
+        </div>
+
+        <div class="img-container">
+            <img class="logo-img" src="/static/logo.png">
+        </div>
+    </div>
 </body>
