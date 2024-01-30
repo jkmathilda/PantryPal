@@ -55,12 +55,11 @@ def recipe():
         else: 
             lorn, lingr, lop, lurl = toRecipe.combine(ingredients, staples)
             
-            
-            image_url = lurl[0]
-            
-            recipes = lorn[0]
-        
-            return render_template('toRecipe.html', recipe_name=recipes, image_url=image_url)
+            # image_url = lurl[0]
+            # recipes = lorn[0]
+            # return render_template('toRecipe.html', recipe_name=recipes, image_url=image_url, recipes=lurl)
+
+            return render_template('toRecipe.html', recipe_name=lorn, image_url=lurl)
         
     else: 
         return render_template('toRecipe.html')
