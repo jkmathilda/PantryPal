@@ -67,7 +67,7 @@ def recipe():
             return render_template('toRecipe.html')
     
     except:
-        return render_template('error.html');
+        return render_template('error.html')
 
 
 @app.route('/pantryTracker')
