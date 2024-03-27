@@ -1,0 +1,194 @@
+* {
+  font-family: 'Poppins'
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  margin-bottom: 30px;
+
+}
+
+.logo-name {
+  font-size: 72px;
+  font-style: normal;
+  text-align: center;
+}
+
+.logo-img {
+  margin-left: 15px;
+  height: 80px;
+  width: 78px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.search-bar {
+  border-radius: 4px;
+  padding-top: 12px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  border-width: 1.5px;
+  font-size: 15px;
+  font-family: 'Poppins';
+  height: 50.5px;
+  width: 370px;
+  box-sizing: border-box;
+}
+
+.search-bar:focus {
+  outline: none;
+}
+
+.staples-btn:hover, .staples-btn:focus, .search-btn:hover, .search-btn:focus {
+  background-color: rgb(107, 154, 255);
+}
+
+label {
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.dropdown-options {
+  display: none;
+  background-color: black;
+  color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding-left: 4px;  
+  padding-right: 4px; 
+  position: absolute;
+  width: 92px;
+}
+
+input[type=checkbox] {
+  accent-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.dropdown {
+  display:inline-block;
+}
+.dropdown:hover .dropdown-options {
+  display: block;
+}
+
+.search-btn {
+  background-color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  height: 50.5px;
+  background-image: url("search-icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  margin-left: 2px;
+}
+
+ .staples-btn {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  font-family: 'Poppins';
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 13px 20px;
+  box-sizing: border-box;
+  margin-left: 2px;
+  height: 50.5px;
+ }
+
+ i, h1 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+button {
+  transition: background-color 0.5s;
+}
+
+button:hover {
+  background-color: rgb(107, 154, 255);
+  cursor:pointer;
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  text-align: center;
+}
+
+#left {
+  margin-right: 8px;
+}
+
+.no-style {
+  text-decoration:none;
+  color:inherit;
+}
+
+.recipe-img {
+  border-radius:8px;
+  max-width:100%;
+  height: 360px;
+  margin-bottom:-5px;
+}
+
+.results-box{
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 60px;
+}
+
+.box {
+  min-width: 300px;
+  width: 300px;
+  height: 400px;
+  justify-content: center;
+  text-align: center;
+}
+
+.title{
+  font-size: 23px;
+  margin-bottom: 0;
+}
+
+.dropdown-img{
+  width: 15px;
+  height: 8px;
+  display:inline-block;
+}
+
+.collapsible {
+  background-color: #000000;
+  border: black;
+  border-radius: 8px;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.panel {
+  display: none;
+}
