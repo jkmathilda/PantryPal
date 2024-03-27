@@ -47,7 +47,7 @@
     <div class="results-box">
       {% for i in range(0,3) %}
         <div class="box">
-          <img class="recipe-img" src="{{ image_url[i] }}">
+          <img class="recipe-img" src="{{ image_url[i] | default('food.jpg') }}">
           <h1 class="title"> {{ recipe_name[i] }} </h1>
           <div class="text-area"> 
             <p class="ingredients"> Ingredients: Put ingredients here </p>
