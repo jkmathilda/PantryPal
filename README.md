@@ -28,15 +28,15 @@ To get started with this project, you'll need to clone the repository and set up
     echo '.env'  >> .gitignore
     echo '.venv' >> .gitignore
 
-    python -m venv .venv        # create a new virtual environment
+    python3 -m venv .venv        # create a new virtual environment
 
     source .venv/bin/activate   # Activate the virtual environment
 
 ### Install the required dependencies
 
-    pip list
+    pip3 list
 
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 
     pip freeze | tee requirements.txt.detail
 
