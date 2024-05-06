@@ -16,24 +16,6 @@ To get started with this project, you'll need to clone the repository and set up
 ### Cloning the Repository
 
     git clone https://github.com/jkmathilda/PantryPal.git
-# PantryPal
-
-### Table of Contents
-* [Introduction](#Introduction)
-* [Getting Started](#Getting-Started)
-* [Use](#Use) 
-
-
-## Introduction
-PantryPal is a dynamic online service focused on improving pantry management and decreasing unnecessary food spoilage. By tracking food items and offering recipe suggestions for those about to expire, it helps users to efficiently use their ingredients and avoid waste. 
-
-
-## Getting Started
-To get started with this project, you'll need to clone the repository and set up a virtual environment. This will allow you to install the required dependencies without affecting your system-wide Python installation.
-
-### Cloning the Repository
-
-    git clone https://github.com/jkmathilda/PantryPal.git
 
 ### Setting up a Virtual Environment
 
