@@ -11,9 +11,9 @@ app = Flask(__name__)
 def home():
    return render_template('home.html')
 
-@app.route('/zindex.html')
-def zindex():
-   return render_template('zindex.html')
+# @app.route('/zindex.html')
+# def zindex():
+#    return render_template('zindex.html')
 
 @app.route('/toRecipe', methods = ["GET", "POST"])
 def recipe():
