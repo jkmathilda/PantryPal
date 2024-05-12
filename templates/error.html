@@ -2,7 +2,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='home-styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='error-page.css') }}">
+    <!-- <link rel="stylesheet" href="../static/error-page.css"> -->
     <!--<link rel="stylesheet" href="../static/style.css">-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +17,8 @@
         <div class="img-container">
             <img class="logo-img" src="/static/error.png">
         </div>
-        <div>
-            <a href="/" id="left"><button type = "button">Home</button></a>
+        <div class="btn-container">
+            <a href="../templates/home.html"><button type="button" class="home-btn">Go Back Home</button></a>
         </div>
     </div>
 </body>
