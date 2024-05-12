@@ -25,6 +25,7 @@
                         class="search-bar"
                         placeholder="API Key (sk-)"
                         oninput="this.value = this.value.replace(/\n/g,'')"
+                        style="color: #165CBE;"
                         required
                         {% if OpenAIAPIKey %}
                             value="{{ OpenAIAPIKey }}"
