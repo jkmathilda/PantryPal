@@ -80,16 +80,6 @@ def recipe():
 def ingredients():
    return render_template('pantryTracker.html')
 
-# @app.route('/search', methods = ["GET", "POST"])
-# def search():
-#     if request.method == 'POST':
-#         form_data = request.form
-#         val1 = form_data['inputContent']
-#         val2 = form_data.get('butter')  # is_checked
-#         return (f' inputContent: {val1}<br>button(butter) is checked: {val2}')
-#     else:
-#         # return render_template('toRecipe.html')
-#         return 'This is Search Page!'
 
 
 if __name__ == '__main__':
