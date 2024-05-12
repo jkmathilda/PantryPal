@@ -20,7 +20,16 @@
             
             <form method="POST" action="/toRecipe">
                 <div class="search-container">
-                    <textarea name="inputAPIKey" class="search-bar" placeholder="API Key (sk-)" rows=1 oninput="this.value = this.value.replace(/\n/g,'')" required></textarea>
+                    <input type="text"
+                        name="inputAPIKey"
+                        class="search-bar"
+                        placeholder="API Key (sk-)"
+                        oninput="this.value = this.value.replace(/\n/g,'')"
+                        required
+                        {% if OpenAIAPIKey %}
+                            value="{{ OpenAIAPIKey }}"
+                        {% endif %}
+                    ></input>
                 </div>
 
                 <nav class = "btn-container">

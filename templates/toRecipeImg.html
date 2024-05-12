@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='to-recipe.css') }}">
+  <!-- <link rel="stylesheet" href="../static/to-recipe.css"> -->
+  <!--<link rel="stylesheet" href="../static/style.css">-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <title>PantryPal</title>
+</head>
+
+<body>
+  <div class="container ">
+    <div class="logo-container">
+      <a href="/" class="no-style"><h class="logo-name">PantryPal</h> </a>
+      <img class="logo-img" src="/static/logo.png">
+    </div>
+
+    <form method="POST" action="/toRecipe">
+      <div class="search-container">
+        <textarea name="inputStaples" class="search-bar" placeholder="e.g. eggs, flour, rice..." rows=1></textarea>
+        <button class="search-btn"></button>
+        <div class="dropdown">
+          <button class="staples-btn">Staples</button>
+            <div class="dropdown-options">
+              <!--<input name="butter" type="checkbox" id="option1" checked>
+                <label for="option1"> Butter </label><br>
+              <input name="oil" type="checkbox" id="option2" checked>
+                <label for="option2" > Oil </label><br>
+              <input name="water" type="checkbox" id="option3" checked>
+                <label for="option3" > Water </label><br>
+              <input name="salt" type="checkbox" id="option4" checked>
+                <label for="option4"> Salt </label><br>
+              <input name="pepper" type="checkbox" id="option5" checked>
+                <label for="option5"> Pepper </label><br>
+            -->
+              <input type="checkbox" name="listStaples" value="butter" checked>Butter<br>
+              <input type="checkbox" name="listStaples" value="oil" checked>Oil<br>
+              <input type="checkbox" name="listStaples" value="water" checked>Water<br>
+              <input type="checkbox" name="listStaples" value="salt" checked>Salt<br>
+              <input type="checkbox" name="listStaples" value="pepper" checked>Pepper<br>
+            </div>      
+          </div>
+      </div>
+    </form>
+
+    {% if inputAPIKey %}
+      <div class="results-box">
+        {% for i in range(0,3) %}
+          <div class="recipe-box">
+            <img class="recipe-img" src="{{ image_url[i] | default('food.jpg') }}">
+            <h1 class="recipe-name"> {{ recipe_name[i] }} </h1>
+            <div class="text-area"> 
+              <p class="ingredients"> Ingredients: Put ingredients here </p>
+              <button class="instr-btn"> 
+                Instructions <img class="arrow-img" src="/static/dropdown.png"> 
+              </button>
+              <div class="instr-panel"> 
+                <p class="instr-text"> 
+                  1. Put instructions here <br>
+                  2. This is a test  <br>
+                  3. I'm hungry
+                </p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  <script src="/static/script.js"></script>
+</body>
+
+
+
+<!--
+    <div class="results-box">
+      <div class="box">
+        <img class="recipe-img" src={{image_url}}>
+        <h1 class="title"> {{recipe_name}} </h1>
+        <div class="text-area"> 
+          <p class="ingredients"> Ingredients: Put ingredients here </p>
+          <button class="collapsible"> 
+            Instructions <img class="dropdown-img" src="/static/dropdown.png"> 
+          </button>
+            <div class="panel"> 
+              <p class="instructions"> 
+                1. Put instructions here <br>
+                2. This is a test  <br>
+                3. I'm hungry </p>
+              </p>
+            </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <img class="recipe-img" src={{image_url}}>
+        <h1 class="title"> {{recipe_name}} </h1>
+        <p class="ingredients"> Put ingredients here </p>
+        <div class="text-area"> 
+          <p class="ingredients"> Ingredients: Put ingredients here </p>
+          <button class="collapsible"> 
+            Instructions <img class="dropdown-img" src="/static/dropdown.png"> 
+          </button>
+            <div class="panel"> 
+              <p class="instructions"> 
+                1. Put instructions here <br>
+                2. This is a test  <br>
+                3. I'm hungry </p>
+              </p>
+            </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <img class="recipe-img"src={{image_url}}> 
+        <h1 class="title"> {{recipe_name}} </h1>
+        <div class="text-area"> 
+          <p class="ingredients"> Ingredients: Put ingredients here </p>
+            <button class="collapsible"> 
+              Instructions <img class="dropdown-img" src="/static/dropdown.png"> 
+            </button>
+              <div class="panel"> 
+                <p class="instructions"> 
+                  1. Put instructions here <br>
+                  2. This is a test  <br>
+                  3. I'm hungry </p>
+                </p>
+              </div>
+          </div>
+        </div>
+  </div>
+-->
