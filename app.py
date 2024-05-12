@@ -9,7 +9,15 @@ app = Flask(__name__)
 @app.route('/home')
 @app.route('/home.html')
 def home():
-   return render_template('home.html')
+    inputAPIKey = None
+
+    if load_dotenv():
+        print(f'### load .env file')
+        inputAPIKey = os.getenv('OPENAI_API_KEY')
+        if inputAPIKey is not None:
+            print(f'### OPENAI_API_KEY : {inputAPIKey}')
+            
+    return render_template('home.html', OpenAIAPIKey=inputAPIKey)
 
 # @app.route('/zindex.html')
 # def zindex():
@@ -31,11 +39,8 @@ def recipe():
         if request.method == 'POST' and request.form.get('inputAPIKey'):
             inputAPIKey = request.form.get('inputAPIKey')
             if len(inputAPIKey) != 51:
-                print('### read .env')
-                if not load_dotenv():
-                    print("Failed to load the key. check .env file")
-                    return render_template('error.html')
-                inputAPIKey = os.getenv('OPENAI_API_KEY')
+                print("### Incorrect length of API Key.")
+                return render_template('error.html')
             print(f'### OPENAI_API_KEY : {inputAPIKey}')
             return render_template('toRecipe.html')
         
@@ -61,12 +66,13 @@ def recipe():
                 # recipes = lorn[0]
                 # return render_template('toRecipe.html', recipe_name=recipes, image_url=image_url, recipes=lurl)
 
-                return render_template('toRecipe.html', recipe_name=lorn, image_url=lurl)
+                return render_template('toRecipeImg.html', recipe_name=lorn, image_url=lurl)
             
         else:
             return render_template('toRecipe.html')
     
-    except:
+    except Exception as e:
+        print('Error Occurred: ', e)
         return render_template('error.html')
 
 
