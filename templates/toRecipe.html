@@ -19,8 +19,6 @@
 
     <form method="POST" action="/toRecipe">
       <div class="search-container">
-        <textarea name="inputStaples" class="search-bar" placeholder="e.g. eggs, flour, rice..." rows=1></textarea>
-        <button class="search-btn"></button>
         <div class="dropdown">
           <button class="staples-btn" disabled>Staples</button>
             <div class="dropdown-options">
@@ -30,7 +28,10 @@
               <input type="checkbox" name="listStaples" value="salt" checked>Salt<br>
               <input type="checkbox" name="listStaples" value="pepper" checked>Pepper<br>
             </div>      
-          </div>
+        </div>
+        <textarea name="inputStaples" class="search-bar" placeholder="e.g. eggs, flour, rice..." rows=1></textarea>
+        <button class="search-btn"></button>
+        
       </div>
     </form>
 

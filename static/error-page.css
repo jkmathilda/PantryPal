@@ -31,7 +31,7 @@
   font-family: 'Poppins';
 }
 
-button:hover, :active {
+button:hover {
   background-color: #2f3993;
   cursor:pointer;
 }

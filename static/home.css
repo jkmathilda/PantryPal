@@ -24,28 +24,26 @@
 .text {
   font-size: 25px;
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 
-.search-container {
+.key-container {
   margin-top: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
-.search-bar {
+.key-box{
   border-radius: 4px;
-  padding-top: 12px;
-  padding-bottom: 8px;
-  padding-left: 15px;
-  border-width: 1.5px;
+  padding: 20px 10px;
+  border-width: 1px;
   font-size: 20px;
-  font-family: 'Poppins';
   max-height: 50.5px;
   width: 100%;
   box-sizing: border-box;
+  color: #165CBE;
 }
 
-.search-bar:focus {
+.key-box:focus {
   outline: none;
 }
 

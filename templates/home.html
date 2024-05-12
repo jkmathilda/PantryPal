@@ -19,13 +19,12 @@
             <p class="text"> Enter your API key and select one of the options below to get started!</p>
             
             <form method="POST" action="/toRecipe">
-                <div class="search-container">
+                <div class="key-container">
                     <input type="text"
                         name="inputAPIKey"
-                        class="search-bar"
+                        class="key-box"
                         placeholder="API Key (sk-)"
                         oninput="this.value = this.value.replace(/\n/g,'')"
-                        style="color: #165CBE;"
                         required
                         {% if OpenAIAPIKey %}
                             value="{{ OpenAIAPIKey }}"
