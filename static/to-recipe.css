@@ -72,6 +72,9 @@ button {
   width: 105px;
   box-sizing: border-box;
 }
+.staples-btn:hover {
+  color: rgb(198, 198, 198);
+}
 
 .dropdown {
   display:inline-block;
@@ -90,6 +93,9 @@ button {
   position: absolute;
   width: 92px;
   font-size: 18px;
+}
+.dropdown-options:hover {
+  cursor: default;
 }
 
 input[type=checkbox] {
