@@ -59,6 +59,7 @@ or select 'Your key' and enter your API key.
 
 # Example
 <img width="1710" alt="Screenshot 2024-01-29 at 9 08 46 AM" src="https://github.com/jkmathilda/PantryPal/assets/142202145/65a35931-6400-4738-85fe-b95be7b0e780">
+<img width="1285" alt="Screenshot 2024-05-23 at 8 30 02 PM" src="https://github.com/jkmathilda/PantryPal/assets/142202145/7b09448f-bacb-4117-8d04-42f587d11960">
 
 
 ## Developer Team
