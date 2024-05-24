@@ -72,6 +72,9 @@ button {
   width: 105px;
   box-sizing: border-box;
 }
+.staples-btn:hover {
+  background-color: #165CBE;
+}
 
 .dropdown {
   display:inline-block;
