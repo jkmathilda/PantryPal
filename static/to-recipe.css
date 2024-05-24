@@ -81,6 +81,7 @@ button {
 }
 .dropdown:hover .dropdown-options {
   display: block;
+  cursor: default;
 }
 
 .dropdown-options {
