@@ -9,17 +9,14 @@ app = Flask(__name__)
 @app.route('/home')
 @app.route('/home.html', methods = ["POST"])
 def home():
-    inputAPIKey = None
     form_data = request.form
+    inputAPIKey = None
 
     if load_dotenv():
         print(f'### load .env file')
         inputAPIKey = os.getenv('OPENAI_API_KEY')
     elif request.method == 'POST' and form_data.get('inputAPIKey'):
         inputAPIKey = form_data.get('inputAPIKey')
-        if len(inputAPIKey) != 51:
-            print("### Incorrect length of API Key.")
-            return render_template('error.html')
     
     if inputAPIKey is not None:
         print(f'### OPENAI_API_KEY : {inputAPIKey}')
