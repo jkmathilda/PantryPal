@@ -37,15 +37,6 @@ def recipe():
         form_data = request.form
         print(f'### form_data : {form_data}')
         
-        # from home.html to these pages
-        # if request.method == 'POST' and form_data.get('inputAPIKey'):
-        #     inputAPIKey = form_data.get('inputAPIKey')
-        #     if len(inputAPIKey) != 51:
-        #         print("### Incorrect length of API Key.")
-        #         return render_template('error.html')
-        #     # print(f'### OPENAI_API_KEY : {inputAPIKey}')
-        #     return render_template('toRecipe.html')
-        
         # from toRecipe.html to these pages
         if request.method == 'POST' and form_data.get('inputStaples'):
             ingredients = form_data['inputStaples']
