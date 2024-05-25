@@ -13,7 +13,6 @@ for (i = 0; i < btn.length; i++) {
   });
 }
 
-
 function waiting() {
     const waitingDiv = document.createElement('div');
     waitingDiv.innerHTML = `
