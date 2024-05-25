@@ -7,16 +7,23 @@ app = Flask(__name__)
 
 @app.route('/')
 @app.route('/home')
-@app.route('/home.html')
+@app.route('/home.html', methods = ["POST"])
 def home():
     inputAPIKey = None
+    form_data = request.form
 
     if load_dotenv():
         print(f'### load .env file')
         inputAPIKey = os.getenv('OPENAI_API_KEY')
-        if inputAPIKey is not None:
-            print(f'### OPENAI_API_KEY : {inputAPIKey}')
-            
+    elif request.method == 'POST' and form_data.get('inputAPIKey'):
+        inputAPIKey = form_data.get('inputAPIKey')
+        if len(inputAPIKey) != 51:
+            print("### Incorrect length of API Key.")
+            return render_template('error.html')
+    
+    if inputAPIKey is not None:
+        print(f'### OPENAI_API_KEY : {inputAPIKey}')
+        
     return render_template('home.html', OpenAIAPIKey=inputAPIKey)
 
 
@@ -31,16 +38,16 @@ def recipe():
         print(f'### form_data : {form_data}')
         
         # from home.html to these pages
-        if request.method == 'POST' and form_data.get('inputAPIKey'):
-            inputAPIKey = form_data.get('inputAPIKey')
-            if len(inputAPIKey) != 51:
-                print("### Incorrect length of API Key.")
-                return render_template('error.html')
-            # print(f'### OPENAI_API_KEY : {inputAPIKey}')
-            return render_template('toRecipe.html')
+        # if request.method == 'POST' and form_data.get('inputAPIKey'):
+        #     inputAPIKey = form_data.get('inputAPIKey')
+        #     if len(inputAPIKey) != 51:
+        #         print("### Incorrect length of API Key.")
+        #         return render_template('error.html')
+        #     # print(f'### OPENAI_API_KEY : {inputAPIKey}')
+        #     return render_template('toRecipe.html')
         
         # from toRecipe.html to these pages
-        elif request.method == 'POST' and form_data.get('inputStaples'):
+        if request.method == 'POST' and form_data.get('inputStaples'):
             ingredients = form_data['inputStaples']
             staples_list = form_data.getlist('listStaples')  # 'butter', 'oil', 'water', 'salt', 'pepper'
             print(f'### stape list {type(staples_list)} : {staples_list}')
