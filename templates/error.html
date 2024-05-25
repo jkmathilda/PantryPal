@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link
     rel="stylesheet"
-    href="{{ url_for('static', filename='error-page.css') }}"
+    href="{{ url_for('static', filename='error.css') }}"
   />
   <!-- <link rel="stylesheet" href="../static/error-page.css"> -->
   <!--<link rel="stylesheet" href="../static/style.css">-->
@@ -21,7 +21,14 @@
 <body>
   <div class="container">
     <div class="img-container">
-      <img class="logo-img" src="/static/error.png" />
+      <img class="logo-img" src="/static/error.png"/>
+    <div class="error-msg">
+      <p>It could be due to one of the following: </p>
+      <ul>
+        <li>- Invalid(Typo, Expired) OpenAI API Key: Doublecheck your key</li>
+        <li>- Program failure: Try rerunning</li>
+        <li>- Not enough ingredients inputted: Provide more ingredients or try rerunning - this might give an error again</li>
+      </ul>
     </div>
     <div class="btn-container">
       <a href="./home.html"

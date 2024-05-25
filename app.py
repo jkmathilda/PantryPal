@@ -67,7 +67,9 @@ def recipe():
 
 @app.route('/pantryTracker')
 def ingredients():
+   return render_template('error.html')
    return render_template('pantryTracker.html')
+
 
 
 if __name__ == '__main__':

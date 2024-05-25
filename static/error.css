@@ -1,3 +1,7 @@
+* {
+  font-family: 'Poppins'
+}
+
 .container {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -10,12 +14,15 @@
   height: 400px;
   width: 400px;
   margin-bottom: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 .home-btn{
   height: 60px;
@@ -34,4 +41,14 @@
 button:hover {
   background-color: #2f3993;
   cursor:pointer;
+}
+
+.error-msg {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  color: #818181;
+  margin-bottom: 50px;
 }
