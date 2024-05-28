@@ -48,6 +48,11 @@ To configure the application, there are a few properties that can be set the env
 
 or select 'Your key' and enter your API key. 
 
+OR 
+
+Simply just run the program type it in. 
+
+
 ### Running the Application
 
     python app.py
