@@ -50,7 +50,7 @@ or select 'Your key' and enter your API key.
 
 OR 
 
-Simply just run the program type it in. 
+Simply just run the program and type it in. 
 
 
 ### Running the Application
