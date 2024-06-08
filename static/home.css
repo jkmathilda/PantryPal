@@ -1,5 +1,5 @@
 * {
-  font-family: 'Poppins'
+  font-family: "Poppins";
 }
 
 .container {
@@ -33,7 +33,7 @@
   margin-bottom: 1.8rem;
 }
 
-.key-box{
+.key-box {
   border-radius: 0.25rem;
   padding: 1.25rem 1.6rem;
   border-width: 0.0625rem;
@@ -41,14 +41,15 @@
   max-height: 3.15rem;
   width: 100%;
   box-sizing: border-box;
-  color: #165CBE;
+  color: #165cbe;
 }
 
 .key-box:focus {
   outline: none;
 }
 
- i, h1 {
+i,
+h1 {
   display: inline-block;
   vertical-align: middle;
 }
@@ -73,7 +74,7 @@ button {
 
 button:hover {
   background-color: rgb(77, 77, 77);
-  cursor:pointer;
+  cursor: pointer;
 }
 
 button:active {
@@ -81,16 +82,16 @@ button:active {
 }
 
 .no-style {
-  text-decoration:none;
-  color:inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 @media (max-width: 1210px) {
-  .text-container{
+  .text-container {
     text-align: center;
   }
 
-  .img-container{
+  .img-container {
     display: none;
   }
 
@@ -114,7 +115,7 @@ button:active {
 }
 
 @media (max-width: 745px) {
-  .text-container{
+  .text-container {
     text-align: center;
   }
 
