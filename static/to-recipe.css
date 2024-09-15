@@ -166,6 +166,11 @@ h1 {
   display: none;
 }
 
+.text-area {
+  margin-bottom: 100px;
+}
+
+
 footer {
   color: rgb(135, 135, 135);
   text-align: center;
